@@ -9,7 +9,7 @@ ruby_block "checking cassandra cli port" do
 end
 
 template '#{node.cassandra[:home_dir]}/conf/cassandra-schema.txt' do
-  source "cassandra.schema.txt.erb"
+  source "cassandra-schema.txt.erb"
   mode 0644
   owner "cassandra"
 end
