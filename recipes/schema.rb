@@ -9,7 +9,7 @@ ruby_block "checking cassandra cli port" do
 end
 
 # create the schema if this is the first node of a cassandra ring, or if this is NOT part of a ring (i.e. uber)
-if node['name'].include?('cassandra1') || !node['name'].include?('cassandra')
+#if node['name'].include?('cassandra1') || !node['name'].include?('cassandra')
   execute "Trying to create Tempo schema..." do
     cwd     node.cassandra[:home_dir]
     user    'root'
@@ -19,4 +19,4 @@ if node['name'].include?('cassandra1') || !node['name'].include?('cassandra')
         fi
         bin/cassandra-cli -h #{node.cassandra[:ipaddress]} -B -f #{node.cassandra[:conf_dir]}/cassandra-schema.txt"
   end
-end
+#end
