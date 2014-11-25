@@ -17,6 +17,6 @@ end
         if [ $? -eq 0 ]; then
             exit 0
         fi
-        bin/cassandra-cli -h #{node.cassandra[:ipaddress]} -B -f #{node.cassandra[:conf_dir]}/cassandra-schema.txt"
+        bin/cassandra-cli -h #{node[:ipaddress]} -B -f #{node.cassandra[:conf_dir]}/cassandra-schema.txt"
   end
 #end
