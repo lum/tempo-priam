@@ -19,7 +19,7 @@ end
   execute "Trying to create Tempo schema..." do
     cwd     node.cassandra[:home_dir]
     user    'root'
-    command "echo \"show keyspaces;\" | bin/cassandra-cli -h #{node.cassandra[:ipaddress]} | grep \"Keyspace: tempo:\"
+    command "echo \"show keyspaces;\" | bin/cassandra-cli -h #{node[:ipaddress]} | grep \"Keyspace: tempo:\"
         if [ $? -eq 0 ]; then
             exit 0
         fi
