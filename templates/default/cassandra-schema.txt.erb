@@ -66,9 +66,9 @@ create column family email_stats
   and compression_options={sstable_compression:SnappyCompressor, chunk_length_kb:64};
 
 assume users keys as utf8;
-set users['email_index']['<%= node[:email_index][:admin_username] %>'] = '<%= node[:email_index][:admin_username_hash] %>';
-set users['<%= node[:email_index][:admin_username_hash] %>']['user'] = ' {"id":"<%= node[:email_index][:admin_username_hash] %>","password":"<%= node[:email_index][:admin_username][:password] %>","salt":"<%= node[:email_index][:admin_username][:salt] %>","roles":["user","admin","usermigration"],"email":"<%= node[:email_index][:admin_username] %>"}';
+set users['email_index']['<%= node[:cassandra][:email_index][:admin_username] %>'] = '<%= node[:cassandra][:email_index][:admin_username_hash] %>';
+set users['<%= node[:cassandra][:email_index][:admin_username_hash] %>']['user'] = ' {"id":"<%= node[:cassandra][:email_index][:admin_username_hash] %>","password":"<%= node[:cassandra][:email_index][:admin_username][:password] %>","salt":"<%= node[:cassandra][:email_index][:admin_username][:salt] %>","roles":["user","admin","usermigration"],"email":"<%= node[:cassandra][:email_index][:admin_username] %>"}';
 
 assume users keys as utf8;
-set users['email_index']['<%= node[:email_index][:migration_username] %>'] = '<%= node[:email_index][:migration_username_hash] %>';
-set users['<%= node[:email_index][:migration_username_hash] %>']['user'] = ' {"id":"<%= node[:email_index][:migration_username_hash] %>","password":"<%= node[:email_index][:migration_username][:password] %>","salt":"<%= node[:email_index][:migration_username][:salt] %>","roles":["user","admin","usermigration"],"email":"<%= node[:email_index][:migration_username] %>"}';
+set users['email_index']['"<%= node[:cassandra][:email_index][:migration_username] %>"'] = '"<%= node[:cassandra][:email_index][:migration_username_hash] %>"';
+set users['<%= node[:cassandra][:email_index][:migration_username_hash] %>']['user'] = ' {"id":"<%= node[:cassandra][:email_index][:migration_username_hash] %>","password":"<%= node[:cassandra][:email_index][:migration_username][:password] %>","salt":"<%= node[:cassandra][:email_index][:migration_username][:salt] %>","roles":["user","admin","usermigration"],"email":"<%= node[:cassandra][:email_index][:migration_username] %>"}';
