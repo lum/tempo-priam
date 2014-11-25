@@ -1,6 +1,6 @@
 create keyspace tempo
   with placement_strategy = 'NetworkTopologyStrategy'
-  and strategy_options = {us-east:<%= @cassandra[:replication_factor] %>};
+  and strategy_options = {us-east:"<%= node[:cassandra][:replication_factor] %>"};
 
 use tempo;
 
