@@ -7,10 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# Setup SSD 
+include_recipe "ebs::priam-ssd"
+
 include_recipe "cassandra-priam"
 
 # Setup Cassandra Schema
 include_recipe "tempo-priam::schema"
 
-# Setup SSD 
-include_recipe "ebs::priam-ssd"
