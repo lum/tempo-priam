@@ -15,3 +15,10 @@ include_recipe "cassandra-priam"
 # Setup Cassandra Schema
 include_recipe "tempo-priam::schema"
 
+# Setup Cassandra PATH
+template "/etc/profile.d/cassandra_tools.sh" do
+    source "cassandra_tools.sh.erb"
+    owner "root"
+    mode 0644
+    variables     :cassandra => node[:cassandra]
+end
