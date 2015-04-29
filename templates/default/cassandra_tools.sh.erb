@@ -3,4 +3,4 @@
 export PATH=$PATH:<%= @cassandra[:home_dir] %>/bin
 export CASSANDRA_HOME=<%= @cassandra[:home_dir] %>
 export CASSANDRA_CONF=<%= @cassandra[:conf_dir] %>
-export CASSANDRA_INCLUDE=<%= @cassandra[:conf_dir] %>/cassandra.in.sh
+export CASSANDRA_INCLUDE=<%= @cassandra[:home_dir] %>/cassandra.in.sh
